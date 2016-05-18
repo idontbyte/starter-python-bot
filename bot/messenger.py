@@ -67,5 +67,5 @@ class Messenger(object):
         response = self.clients.web.users.list()
         users = response.body['members']
         for user in users:
-            self.send_message("@" + user, txt)
+            self.send_message("@" + user.name, txt)
         
