@@ -23,7 +23,7 @@ class Messenger(object):
             "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
             "> `<@" + bot_uid + "> joke` - I'll tell you one of my finest jokes, with a typing pause for effect. :laughing:",
             "> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:",
-            "> `<@" + bot_uid + "> get bugs` - I'll message everyone in channel to see if they have any bugs to report this week")
+            "> `<@" + bot_uid + "> getbugs` - I'll message everyone in channel to see if they have any bugs to report this week")
         self.send_message(channel_id, txt)
 
     def write_greeting(self, channel_id, user_id):
