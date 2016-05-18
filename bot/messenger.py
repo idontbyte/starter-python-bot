@@ -66,6 +66,7 @@ class Messenger(object):
         txt = "Please can you tell me - are there any open bugs to report this week?"
         response = self.clients.web.users.list()
         users = response.body['members']
-        for user in users.members:
-            self.send_message("@" + user.name, txt)
+        self.send_message(channel_id, users)
+        #for user in users:
+            #self.send_message("@" + user.name, txt)
         
