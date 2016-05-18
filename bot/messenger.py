@@ -22,7 +22,8 @@ class Messenger(object):
             "I'm your friendly Slack bot written in Python.  I'll *_respond_* to the following commands:",
             "> `hi <@" + bot_uid + ">` - I'll respond with a randomized greeting mentioning your user. :wave:",
             "> `<@" + bot_uid + "> joke` - I'll tell you one of my finest jokes, with a typing pause for effect. :laughing:",
-            "> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:")
+            "> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:",
+            "> `<@" + bot_uid + "> get bugs` - I'll message everyone in channel to see if they have any bugs to report this week")
         self.send_message(channel_id, txt)
 
     def write_greeting(self, channel_id, user_id):
@@ -59,3 +60,11 @@ class Messenger(object):
             "color": "#7CD197",
         }
         self.clients.web.chat.post_message(channel_id, txt, attachments=[attachment], as_user='true')
+        
+    def get_bugs(self, channel_id):
+        txt = "Please can you tell me - are there any open bugs to report this week?"
+        response = slack.users.list()
+        users = response.body['members']
+        for user in users:
+            self.clients.web.chat.post_message("@" + user, txt)
+        
