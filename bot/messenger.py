@@ -66,5 +66,5 @@ class Messenger(object):
         response = slack.users.list()
         users = response.body['members']
         for user in users:
-            self.clients.web.chat.post_message("@" + user, txt)
+            self.send_message("@" + user, txt)
         
