@@ -20,7 +20,11 @@ class Messenger(object):
         txt = '{}\n{}\n{}\n{}'.format(
             "I am pollbot - tell me what to do:",
             "> `<@" + bot_uid + "> setapi` - sets the API url for posting collected data",
-            "> `<@" + bot_uid + "> getbugs` - I'll message everyone in channel to see if they have any bugs to report this week")
+            "> `<@" + bot_uid + "> getbugs` - I will message everyone in channel to see if they have any bugs to report this week")
+        self.send_message(channel_id, txt)
+
+    def write_error(self, channel_id, err_msg):
+        txt = ":face_with_head_bandage: my maker didn't handle this error very well:\n>```{}```".format(err_msg)
         self.send_message(channel_id, txt)
 
     def get_bugs(self, channel_id):
