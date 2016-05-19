@@ -31,6 +31,7 @@ class Messenger(object):
             self.clients.web.chat.post_message("@" + member.body['user']['name'], txt, as_user='true')
             
     def set_api(self, channel_id):
+        bot_uid = self.clients.bot_user_id()
         txt = "Please tell me the API URL with `<@" + bot_uid + "> api-http://yoururl`"
         self.send_message(channel_id, txt)
    
