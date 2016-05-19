@@ -17,7 +17,7 @@ class Messenger(object):
 
     def write_help_message(self, channel_id):
         bot_uid = self.clients.bot_user_id()
-        txt = '{}\n{}\n{}\n{}'.format(
+        txt = '{}\n{}\n{}'.format(
             "I am pollbot - tell me what to do:",
             "> `<@" + bot_uid + "> setapi` - sets the API url for posting collected data",
             "> `<@" + bot_uid + "> getbugs` - I will message everyone in channel to see if they have any bugs to report this week")
